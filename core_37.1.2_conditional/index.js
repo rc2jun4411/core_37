@@ -1,4 +1,4 @@
-// C:\Users\rc2ju\OneDrive\Documents\core_37\index.js
+// C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.1.2_conditional\index.js
 
 // ex-10 , Making decisions in your code — conditionals
 // A real example;
@@ -21,7 +21,6 @@ select.addEventListener("change", setWeather);
 
 function setWeather() {
   const choice = select.value;
-
   if (choice === "sunny") {
     para.textContent =
       "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
@@ -42,20 +41,19 @@ function setWeather() {
 // ex-11.2, Plan
 const select1 = document.getElementById("plan");
 const para1 = document.getElementById("planResult"); // <= added copilot
-select.addEventListener("change", setPlan);
+select1.addEventListener("change", setPlan);
 
 function setPlan() {
   const choice = select1.value;
-
   if (choice === "walk") {
     para1.textContent =
-      "It is nice to do today.";
+      "It is nice to walk today.";
   } else if (choice === "jogging") {
     para1.textContent =
-      "It is nice to do today.";
+      "It is nice to jogging today.";
   } else if (choice === "swimming") {
     para1.textContent =
-      "It is nice to do today.";
+      "It is nice to swimming today.";
   } else {
     para1.textContent = "";
   }
