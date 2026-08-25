@@ -1,0 +1,17 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_37\style.css */
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+        border-top: 3px double #333333;
+        color: #333333;
+        overflow: visible;
+        text-align: center;
+        height: 3px;
+        width: 80%; /* responsible */
+                    /* 300px is ok too */
+}

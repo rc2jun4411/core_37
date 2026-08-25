@@ -1,0 +1,66 @@
+ref 15. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/
+        Scripting/Conditionals
+      In this article;
+        ・You can have it on one condition!
+        ・if...else statements
+        ・switch statements
+        ・Ternary operator
+        ・Implementing a basic calendar
+        ・Adding more color choices
+
+Summary
+2026-09-25, 
+folder: "core_37.1_conditional"
+
+actions
+1. Preparations
+1.1 copy folder from "core_36.11_array_search"
+                to   "core_37.1_conditional"
+2. edit
+2.1
+ ・if...else statements, 
+   1. A real example, ex-10
+   2. else if, folder: core_37.1.1, ex-11.1；
+
+error; 
+  select --Make a choice--でclick downして
+  sunnyを選ぶと、ex-10の 変数 let shoppingDone = false;
+  と let childAllowance に影響してしまう？
+action 1;
+  1.1 codeを WeatherとPlanを分ける。
+  1.2 ex-11.1(folder: core_37.1) Weatherのみのcodeに、
+      ex-10はそのまま残す。
+
+copilot;
+  原因を切り分けます。まず `index.html` と、同じ構成のもう一方の実装を確認して、
+`select` と `p` の紐付け、スクリプト実行タイミング、変数表示の干渉を見ます。
+確認できました。`select` は正しく取得できていますが、`document.querySelector("p")` 
+が最初の段落 `#result10` を取得しています。
+そのため天気を選ぶと、買い物の結果表示が天気メッセージで上書きされます。
+`shoppingDone` と `childAllowance` が壊れているのではなく、表示先の段落<p>が
+同じになっているのが原因です。
+
+`#weatherResult` を専用に追加して直します。
+修正を入れました。
+
+次はブラウザー上で `Sunny` を選んだときに専用の `#weatherResult` 
+へ文章が入り、`#result10` の値が保持されることを確認します。
+
+Opened `Browser`
+原因は `document.querySelector("p")` です。
+これは最初の `<p>` である `#result10` を取得するため、
+天気メッセージが買い物結果を上書きしていました。
+
+修正内容：
+- `index.html` に `<p id="weatherResult"></p>` を追加
+- `index.js` で `weatherResult` を表示先に指定
+
+`shoppingDone` と `childAllowance` は破壊されていません。実際に `Sunny` を選ぶと、
+天気メッセージが表示され、`shoppingDone = false / childAllowance = 5` も
+保持されることを確認しました。
+Made changes.
+
+  1.3 ex-11.2(folder: core_37.1) planをcodeに追加、
+　　　para1.textContentが表示できない？
+
+   
