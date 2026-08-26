@@ -1,0 +1,33 @@
+ref 15. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/
+        Scripting/Conditionals
+      In this article;
+        ・You can have it on one condition!
+        ・if...else statements
+        ・switch statements
+        ・Ternary operator
+        ・Implementing a basic calendar
+        ・Adding more color choices
+
+Summary
+2026-09-26, 
+folder: "core_37.2_conditional"
+
+actions
+1. Preparations
+1.1 copy folder from "core_37.1.2_conditional"
+                to   "core_37.2_conditional"
+2. edit
+2.1
+ ・if...else statements, 
+  1. A real example, ex-10
+  2. else if, folder: core_37.1.1, ex-11.1；
+                      core_37.1.2, ex-11.1 + ex-11.2； done.
+  3. A note on comparison operators = if(test/comparison operator), folder: core_37.2, ex-12.1；
+   "===" and "!==" — test if one value is identical to, or not identical to, another.
+   "<" and ">"     — test if one value is less than or greater than another.
+   "<=" and ">="   — test if one value is less than or equal to, or greater than or equal to, another.
+   not impliment ex-any
+  4. example 1 and example 2, ex-12.1
+  5. Nesting if...else, ex-12.2
+  6. Logical operators: AND, OR and NOT, ex-12.3
+  
