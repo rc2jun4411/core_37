@@ -49,3 +49,10 @@ querySelector() はCSSセレクターを指定するため、IDを表す # が�
   document.documentElement;を使う。 <= copilot
 
  10. Implementing a basic calendar, ex-12.9
+5th commit, 2026-08-27
+
+ 11. test, ex-12.10.1 - ex-12.10.3
+   Conditionals 1, 
+   Conditionals 2, 
+   Conditionals 3, 
+

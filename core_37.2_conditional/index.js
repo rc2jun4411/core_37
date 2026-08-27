@@ -268,3 +268,81 @@ function createCalendar(month) {
 
 select7.value = "January";
 createCalendar("January");
+
+
+// ex-12.10.1 test Conditionals 1
+let season = "summer";
+let response;
+
+if (season === "summer") {
+  response = "It's probably nice and warm where you are; enjoy the sun!";
+} else if (season === "winter") {
+  response = "I hope you are not too cold. Put some warm clothes on!";
+} else {
+  response =
+    "I don't know what the season is where you are. Hope you are well.";
+}
+
+const section1 = document.querySelector("#conditionals1");
+const para8 = document.createElement("p");
+para8.textContent = response;
+section1.appendChild(para8); // <= 出力指示しているline
+
+
+// ex-12.10.2 test Conditionals 2
+let response2;
+let score = 75;
+let machineActive = false;
+
+if (machineActive) {
+  if (score < 0 || score > 100) {
+    response2 = "This is not possible, an error has occurred.";
+  } else if (score >= 0 && score < 20) {
+    response2 = "That was a terrible score — total fail!";
+  } else if (score >= 20 && score < 40) {
+    response2 =
+      "You know some things, but it's a pretty bad score. Needs improvement.";
+  } else if (score >= 40 && score < 70) {
+    response2 = "You did a passable job, not bad!";
+  } else if (score >= 70 && score < 90) {
+    response2 = "That's a great score, you really know your stuff.";
+  } else if (score >= 90 && score <= 100) {
+    response2 = "What an amazing score! Did you cheat? Are you for real?";
+  }
+} else {
+  response2 = "The machine is turned off. Turn it on to process your score.";
+}
+
+const section2 = document.querySelector("#conditionals2");
+const para11 = document.createElement("p");
+const para12 = document.createElement("p");
+para11.textContent = `Your score is ${score}`;
+para12.textContent = response2;
+section2.appendChild(para11); // <= 出力指示しているline
+section2.appendChild(para12); // <= 出力指示しているline
+
+
+// ex-12.10.3 test Conditionals 3
+let machineActive3 = true;
+let pwd = "cheese";
+
+let machineResult;
+let pwdResult;
+
+if (machineActive3) {
+  machineResult = "Machine is active. Trying login.";
+  pwdResult =
+    pwd === "cheese"
+      ? "Login successful."
+      : "Password incorrect; login failed.";
+} else {
+  machineResult = "Machine is inactive. Activate and try logging in again.";
+}
+
+const section3 = document.querySelector("#conditionals3");
+const para31 = document.createElement("p");
+const para32 = document.createElement("p");
+para31.textContent = machineResult;
+para32.textContent = pwdResult;
+section3.appendChild(para31);
+section3.appendChild(para32);
