@@ -30,4 +30,22 @@ actions
   4. example 1 and example 2, ex-12.1
   5. Nesting if...else, ex-12.2
   6. Logical operators: AND, OR and NOT, ex-12.3
-  
+
+  7. switch statements, ex-12.6
+  =Notes=
+document.getElementById("weather3");      // #不要
+document.querySelector("#weather3");      // #必要
+getElementById() はID専用のメソッドなので、ID名だけを指定します。
+querySelector() はCSSセレクターを指定するため、IDを表す # が必要です。
+
+  8. document.querySelector() method, ex-12.7
+   ref. https://developer.mozilla.org/ja/docs/Web/API/Document/querySelector  
+
+  9. Ternary operator, ex-12.8
+    html全体の背景色を"White" "Black"を切り替え表示する。
+  =Notes=
+  HTML に id="html" がないため html は null です。
+  document.querySelector("#html");をやめて、
+  document.documentElement;を使う。 <= copilot
+
+ 10. Implementing a basic calendar, ex-12.9
