@@ -1,0 +1,41 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_37\style.css */
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+        border-top: 3px double #333333;
+        color: #333333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 80%; /* responsible */
+                    /* 300px is ok too */
+    background-color: lime;
+}
+
+/* ex-13.1, */
+html {
+    width: 100%;
+    /* height: inherit; */
+    /* height: 50vh; */
+    min-height: 150px;
+    background: lightblue;
+}
+
+canvas {
+    display: block;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    position: absolute;
+    top: 65px;
+    left: 5px;
+}

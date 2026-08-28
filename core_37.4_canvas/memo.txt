@@ -1,0 +1,17 @@
+ref 17. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage    
+   In this article;
+    ・The <canvas> element
+    ・The rendering context
+    ・Checking for support
+    ・A skeleton template
+    ・A simple example 
+
+2026-09-28, 
+folder: "core_37.4_canvas"
+
+actions
+1. Preparations
+1.1 copy folder from "core_37.3_looping_code"
+                to   "core_37.4_canvas"
+2. edit
+2.3 

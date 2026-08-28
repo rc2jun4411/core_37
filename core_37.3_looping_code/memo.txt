@@ -1,0 +1,29 @@
+ref 16. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/
+        Scripting/Loops 
+      In this article;
+       ・Why are loops useful?
+       ・Looping through a collection
+       ・The standard for loop
+       ・Exiting loops with break
+       ・Skipping iterations with continue
+       ・while and do...while
+       ・Implementing a launch countdown
+       ・Filling in a guest list
+       ・Which loop type should you use?
+       ・Summary
+    16.1 https://developer.mozilla.org/en-US/docs/Web/API/
+         Canvas_API/Tutorial   
+
+2026-09-27, 
+folder: "core_37.3_looping_code"
+
+actions
+1. Preparations
+1.1 copy folder from "core_37.2_conditional"
+                 to  "core_37.3_looping_code" 
+2. edit
+2.2 Looping code.
+  ・Why are loops useful?
+    Looping code example, ex-13.1 see ref 16.1
+  ・Looping through a collection
+    The for...of loop, ex-13.2
