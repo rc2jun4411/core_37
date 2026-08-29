@@ -352,6 +352,21 @@ function draw_Path2D_SVG() {
   const ctx = canvas.getContext("2d");
   const p = new Path2D("M10 10 h 80 v 80 h -80 Z");
 ctx.fill(p);
+  ctx.font = "16px serif";
+  ctx.fillText("draw_Path2D_SVG()", 10, 120);
 }
 draw_Path2D_SVG()
 
+// ex-14.9.6, Drawing shapes with canvas + text
+function draw_text() {
+  const ctx = document.getElementById("canvas99").getContext("2d");
+  
+  ctx.font = "24px serif";
+
+  ctx.fillStyle = 'blue'; // text 色指定
+  ctx.strokeStyle = 'purple';
+
+  ctx.fillText("Hello world", 10, 50);
+  ctx.strokeText("Hello world", 10, 80);
+}
+draw_text()
