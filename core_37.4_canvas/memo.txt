@@ -1,10 +1,10 @@
-ref 17. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage    
-   In this article;
-    ・The <canvas> element
-    ・The rendering context
-    ・Checking for support
-    ・A skeleton template
-    ・A simple example 
+ref 18. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+    In this article;
+     ・The grid
+     ・Drawing rectangles
+     ・Seeing blurry edges?
+     ・Drawing paths
+     ・Path2D objects
 
 2026-09-28, 
 folder: "core_37.4_canvas"
@@ -14,4 +14,62 @@ actions
 1.1 copy folder from "core_37.3_looping_code"
                 to   "core_37.4_canvas"
 2. edit
-2.3 
+2.4 Drawing shapes with canvas, per ref 18.
+ ・The grid
+ =Notes=
+  Normally 1 unit in the grid corresponds to 1 pixel 
+ on the canvas. The origin of this grid is positioned 
+ in the top left corner at coordinate (0,0). 
+  All elements are placed relative to this origin.
+
+ ・Drawing rectangles, ex-14.7
+ ・Seeing blurry edges?, ex-14.8, ex-14.8.1, ex-14.8.2  
+   1. css, 20倍に増幅(=ぼかす=)
+   2. css, (=ぼかす=)を修正する
+
+
+=SIDEKICK= 関数に引数（<canvas id="canvas8"）を渡す方法
+<WAS>
+function draw() {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.strokeRect(2, 2, 10, 10);
+  ctx.fillRect(7, 7, 1, 1);
+}
+draw();
+
+<MOD by copilot>
+const canvas8 = document.getElementById("canvas8");
+
+function draw8(canvasx) {
+  const ctx = canvasx.getContext("2d");
+  ctx.strokeRect(2, 2, 10, 10);
+  ctx.fillRect(7, 7, 1, 1);
+}
+draw8(canvas8);
+
+=Notes=
+pixelated は、拡大時の補間を止めて、
+元のピクセルをくっきり表示する指定です。
+
+=Noyes= ex-14.8.2
+  While slightly painful when initially working with scalable 2D graphics, 
+paying attention to the pixel grid and the position of paths ensures 
+that your drawings will look correct regardless of scaling or any other 
+transformations involved. A 1.0-width vertical line drawn at the correct 
+position will become a crisp 2-pixel line when scaled up by 2, 
+and will appear at the correct position.
+  This phenomenon of partially filled pixels also extends to shapes 
+that don't align to the pixel grid. For example, consider a rotated 
+rectangle (you'll learn about drawing it in the next section). 
+  To see what it's like with and without image-rendering: pixelated, 
+we have two canvases side by side, and a third one drawn at full scale, 
+with grid lines:
+
+・Drawing paths, ex-14.9 
+  beginPath(),  Creates a new path. Once created, future drawing commands are directed into the path and used to build the path up.
+  Path methods, Methods to set different paths for objects.
+  closePath(),  Adds a straight line to the path, going to the start of the current sub-path.
+  stroke(),     Draws the shape by stroking its outline.
+  fill(),       Draws a solid shape by filling the path's content area.
+

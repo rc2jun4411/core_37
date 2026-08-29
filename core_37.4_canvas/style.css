@@ -31,3 +31,71 @@ hr {
 #canvas4 {
     border: 1px solid black;
 }
+
+/* ex-14.5, */
+#my-canvas {
+    border: 1px solid black;
+}
+
+
+/* ex-14.8, */
+/* 20倍に増幅(=ぼかす=) */
+#canvas8 {
+    width: 300px;
+    height: 300px;
+}
+/* (=ぼかす=)を修正する、 
+   20倍に増幅するときに補完しない */
+#canvas8 {
+    image-rendering: pixelated;
+}
+
+
+/* ex-14.8.1, */
+/* 1枚目*/
+/* 20倍に増幅(=ぼかす=) */
+#canvas81 {
+    width: 300px;
+    height: 300px;
+}
+
+/* 2枚目*/
+/* 20倍に増幅(=ぼかす=) */
+#canvas82 {
+    width: 300px;
+    height: 300px;
+}
+/* (=ぼかす=)を修正する 
+   増幅時補正無し*/
+#canvas82 {
+    image-rendering: pixelated;
+}
+
+/* 3枚目*/
+#canvas83 {
+    width: 300px;
+    height: 300px;
+}
+#canvas83 {
+    image-rendering: pixelated;
+}
+
+
+/* ex-14.8.2, */
+#canvas841,
+#canvas842 {
+  width: 240px;
+  height: 240px;
+}
+#canvas842 {
+  image-rendering: pixelated;
+}
+
+/* ex-14.9.1, ex-14.9.2, ex-14.9.3, ex-14.9.4 */
+#canvas91, #canvas92, #canvas93,
+#canvas94, #canvas95, #canvas96,
+#canvas97, #canvas98 {
+    border: 1px solid blueviolet;
+}
+
+/*  */
