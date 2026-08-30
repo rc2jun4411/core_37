@@ -1,0 +1,82 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.7_Using_Images\index.html--> 
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" />
+    <title>canvas Using Images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- ex-17.1, core_37.7_canvas Using Images -->  
+  <a>"ex-17.1; Using Images, <br>
+    Using images from the same page"<br>
+    not implimented yet.</a>
+  <br>
+  <canvas id="canvas300" width="300" height="100"></canvas>
+<hr class="hr1">
+
+
+<!-- ex-17.2, core_37.7_canvas Using Images -->
+<a>"ex-17.2; Using Images, <br>
+  Creating images from scratch"</a>
+<canvas id="canvas301" width="300" height="100"></canvas>
+<hr class="hr1">
+
+
+<!-- ex-17.3, core_37.7_canvas Using Images -->
+<a>"ex-17.3; Using Images, <br>
+  Embedding an image via data: URL"</a>
+<canvas id="canvas302" width="300" height="100"></canvas>
+<hr class="hr1">
+
+
+<!-- ex-17.5, core_37.7_canvas Using Images -->
+<a>"ex-17.5; Using Images, <br>
+  Using frames from a video, <br>
+  // ref. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
+</a>
+<canvas id="canvas305" width="300" height="100"></canvas>
+
+<!-- 'Try it'
+<video controls width="250">
+  <source src="/shared-assets/videos/flower.webm" type="video/webm" />
+  <source src="/shared-assets/videos/flower.mp4" type="video/mp4" />
+  Download the
+  <a href="/shared-assets/videos/flower.webm">WEBM</a>
+  or
+  <a href="/shared-assets/videos/flower.mp4">MP4</a>
+  video.
+</video> -->
+
+<!-- Basic video example -->
+<!-- 'Big Buck Bunny' licensed under CC 3.0 by the Blender foundation. 
+      Hosted by archive.org -->
+<!-- Poster from peach.blender.org -->
+<video controls src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+  poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" width="620">
+  Sorry, your browser doesn't support embedded videos, but don't worry, you can
+  <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
+  and watch it with your favorite video player!
+</video>
+<hr class="hr1">
+
+
+<!-- ex-17.6, core_37.7_canvas Using Images -->
+<a>"ex-17.6; Using Images, <br>
+Drawing images, <br>  
+Example: A small line graph</a>
+<canvas id="canvas306" width="300" height="200"></canvas>
+<br>
+<button onclick="downloadCanvasImage('canvas306', 'grid.png')">Save as grid.png</button>
+<button onclick="downloadCanvasImage('canvas306', 'graph.png')">Save as graph.png</button>
+
+
+<hr>
+  <script src="index.js"></script>
+</body>
+</html

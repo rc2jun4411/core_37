@@ -1,0 +1,62 @@
+ref 21. https://developer.mozilla.org/en-US/docs/Web/
+        API/Canvas_API/Tutorial/Drawing_text
+      In this article;
+        ・Drawing text
+        ・Styling text
+        ・Advanced text measurements
+
+2026-09-29, 
+folder: "core_37.6_Drawing tetxt"
+
+actions
+1. Preparations
+    copy folder from "core_37.5_canvas styles and colors" 
+                to   "core_37.6_Drawing tetxt"
+2. edit
+2.6 , per ref 21.
+　・Drawing text, ex-16.3 =A textBaseline example; 
+error;
+線が赤くならない理由：
+ fillStyle = 図形の塗りつぶしの色（fillRect() など）
+ strokeStyle = 線の色（stroke() など）
+線を赤くするには strokeStyle = "red" を使い、
+stroke() の前に設定する必要があります。
+
+=Notes= Styling text
+font = value
+The current text style being used when drawing text. 
+This string uses the same syntax as the CSS font 
+property. The default font is 10px sans-serif.
+
+textAlign = value
+Text alignment setting. Possible values: start, end, 
+left, right or center. The default value is start.
+
+textBaseline = value
+Baseline alignment setting. Possible values: top, 
+hanging, middle, alphabetic, ideographic, bottom. 
+The default value is alphabetic.
+
+direction = value
+Directionality. Possible values: ltr, rtl, inherit. 
+The default value is inherit.
+
+=Note 1= 
+フォントサイズを大きくするには？  
+ctx.font = "48px serif"; の数字を増やすだけで大きくなります。
+
+=Note 2=  
+小数1桁（xx.x）にするには？ 
+toFixed(1) で小数第1位までに制限されます。
+例えば 16.123 → "16.1" になります。
+
+=Note 3=  
+textの色を指定するには？
+// 赤色で fillText を描画
+ctx.fillStyle = "red";
+ctx.fillText("Hello world", 10, 50);
+
+// 青色で strokeText を描画
+ctx.strokeStyle = "blue";
+ctx.strokeText("Hello world", 10, 50);
+

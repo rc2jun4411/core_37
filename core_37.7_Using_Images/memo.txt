@@ -1,0 +1,122 @@
+ref 22. https://developer.mozilla.org/en-US/docs/Web/API/
+        Canvas_API/Tutorial/Using_images
+      In this article;
+        ・Getting images to draw
+        ・Drawing images
+        ・Scaling
+        ・Slicing
+        ・Art gallery example
+        ・Controlling image scaling behavior
+    22.1 https://developer.mozilla.org/ja/docs/
+         Web/API/CanvasRenderingContext2D/
+         drawImage
+
+2026-08-30, 
+folder: "core_37.7_Using_Images"
+
+actions
+1. Preparations
+    copy folder from "core_376_Drawing text"
+                to   "core_37.7_Using_Images"
+2. edit
+2.7 edit index.html, index.js, style.css per ref 22.
+ ・Getting images to draw
+  1. Using images from the same page => ex-17.1, not implimented yet.
+
+=Notes 1=
+  The canvas API is able to use any of the following 
+data types as an image source:
+
+HTMLImageElement:
+  These are images created using the Image() constructor, 
+  as well as any <img> element.
+SVGImageElement:
+  These are images embedded using the <image> element.
+HTMLVideoElement:
+  Using an HTML <video> element as your image source grabs 
+  the current frame from the video and uses it as an image.
+HTMLCanvasElement:
+  You can use another <canvas> element as your image source.
+ImageBitmap:
+  A bitmap image, eventually cropped. Used to extract part 
+  of an image, a sprite, from a larger image
+OffscreenCanvas:
+  A special kind of <canvas> that is not displayed and is 
+  prepared without being displayed. Using such an image 
+  source allows you to switch to it without the composition 
+  of the content being visible to the user.
+VideoFrame:
+  An image representing one single frame of a video.
+
+ ・Getting images to draw
+  2. Creating images from scratch => ex-17.2
+
+=Notes 2=
+  When this script gets executed, the image starts loading, 
+but if you try to call drawImage() before the image has 
+finished loading, it won't do anything. Older browsers may 
+even throw an exception, so you need to be sure to use the 
+load event 
+  so you don't draw the image to the canvas before it's ready:
+
+=Notes 3=
+  Whether you have <img> elements in your markup or you 
+create them programmatically in JavaScript, external images 
+may have CORS restrictions. By default, externally fetched 
+images taint the canvas, preventing your site from reading 
+data cross-origin. Using the crossorigin attribute of 
+an <img> element (reflected by the HTMLImageElement.crossOrigin 
+property),
+  you can request permission to load an image from another 
+domain using CORS. If the hosting domain permits cross-domain 
+access to the image, the image can be used in your canvas 
+without tainting it. 
+
+  3. Embedding an image via data: URL => ex-17.3
+  4. Using other canvas elements => ex-17.4, pass
+  5. Using frames from a video => ex-17.5
+    ref 22.2 https://developer.mozilla.org/en-US/docs/
+        Web/HTML/Reference/Elements/video 
+      <video> HTML video embed element
+
+ ・Drawing images
+  6. Example: A small line graph => ex-17.6
+　 error;
+　修正完了です。主な修正点：
+  1. addEventListener と onload の重複削除 - onload だけを使用
+  2. 線の色を指定 - strokeStyle = "red" を追加
+  3. 線の幅を指定 - lineWidth = 2 を追加
+  4. 描画順序を統一 - 画像の後に線を描画
+   error 404 backdrop.png(方眼紙);
+完了です！方法2を実装しました。
+変更内容：
+✅ backdrop.png ファイルの参照を削除
+✅ コード内で薄いグレーの背景を描画
+✅ グリッド線を描画（30ピクセル間隔）
+✅ その上に赤いグラフの線を描画
+これで backdrop.png なしで、グリッド付きの背景にグラフが表示されます！  
+
+   改良: 依頼
+方眼紙(backdrop.png)に折れ線グラフを描く命題でした。
+Q1: グリッド図をfile: ”grid.png” にfolder "core_37" 内にsave. 
+Q2: グラフの線を上書きした図をfile: "graph.png" にsave. 出来ますか？
+   改良: copilot
+ブラウザの JavaScript だけでは自動的にローカルファイルシステムに保存
+できませんが、ダウンロード機能を追加 することで実現できます。
+以下の関数を追加します：
+完全に実装します。HTML にボタンを追加し、ダウンロード機能を実装します：
+次に JavaScript に関数を追加します：
+完成しました！
+   機能：
+"Save as grid.png" ボタン → グリッド図だけをダウンロード
+"Save as graph.png" ボタン → グリッド+グラフ図をダウンロード
+   使用方法：
+ボタンをクリックすると、PNG ファイルがダウンロードされます
+ダウンロードしたファイルを core_37 フォルダに移動してください
+   注意： 
+ブラウザのセキュリティ制限により、JavaScript から
+ローカルフォルダに直接保存することはできません。
+そのため、ダウンロード → 手動で core_37 フォルダに移動 
+という流れになります。
+
+ボタンをクリックして試してみてください！   

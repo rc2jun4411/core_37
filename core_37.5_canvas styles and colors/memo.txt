@@ -33,4 +33,5 @@ actions
   ✅ Redraw ボタンに click イベントリスナーを追加
 
  ・Gradients ex-15.5.1 to ex-15.5.8
- ・Patterns  ex-15.6.1 to 
+ ・Patterns  ex-15.6.1
+ ・Shadows   ex-15.7.1
