@@ -18,18 +18,24 @@ hr {
 }
 
 /* ex-17.x, */
-#canvas300, #canvas301,
-#canvas302, #canvas303,
-#canvas304, #canvas305,
-#canvas306, #canvas307,
-#canvas308 {
+#canvas500 {
     border: 1px solid black;
 }
 
-/* ex-17.8 */
-/* 
-=error=
-.hidden {
+/* ex-17.9 */
+/* body {
+    background: 0 -100px repeat-x url("bg_gallery.png") #4f191a;
+    margin: 10px;
+} */
+
+img {
     display: none;
-} 
-*/
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    padding: 15px;
+}

@@ -1,0 +1,39 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.7.1_canvas_API_drawImage\index.html-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" />
+    <title>canvas Using Images, drawImage()</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<a>"ex-17.8.1; Using Images, <br>
+  Slicing, error fix<br>
+  ref 22.1, drawing_an_image_to_the_canvas<br>
+</a>
+<canvas id="canvas400" width="130" height="140"></canvas>
+  <div class="hidden">
+    <img id="source" 
+        src="https://mdn.github.io/shared-assets/images/examples/rhino.jpg"
+        
+        width="300" 
+        height="227" />
+    <!-- HTMLのimgタグに属性を追加する => crossorigin="anonymous"　は
+     　errorになるので、まずは、JS line 14、に追記する => image.crossOrigin = "anonymous"; // CORS制限を回避する設定
+    <img id="source" 
+        src="https://mdn.github.io/shared-assets/images/examples/rhino.jpg" 
+        crossorigin="anonymous" 
+        width="300" 
+        height="227" />
+  -->
+  </div>
+<hr class="hr1">
+
+<hr>
+  <script src="index.js" defer></script>
+</body>
+</html

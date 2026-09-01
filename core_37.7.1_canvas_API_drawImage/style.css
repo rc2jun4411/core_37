@@ -17,19 +17,16 @@ hr {
     background-color: lime;
 }
 
-/* ex-17.x, */
-#canvas300, #canvas301,
-#canvas302, #canvas303,
-#canvas304, #canvas305,
-#canvas306, #canvas307,
-#canvas308 {
+/* ex-17.8.1x, */
+#canvas400, #canvas401,
+#canvas402, #canvas403,
+#canvas404, #canvas405,
+#canvas406, #canvas407,
+#canvas408 {
     border: 1px solid black;
 }
 
-/* ex-17.8 */
-/* 
-=error=
+/* ex-17.8.1 */
 .hidden {
-    display: none;
+    display: block; /* none: 非表示 */
 } 
-*/

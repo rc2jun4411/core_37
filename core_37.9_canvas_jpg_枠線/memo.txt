@@ -1,0 +1,43 @@
+Q: JavaScript、白い jpg 画像サイズ(横102 x 縦110 pixcel) の四辺を 線幅2 pixel の黒い線で囲う
+A: 
+
+AI による概要
+JavaScriptのCanvas APIを使用して、指定された条件（横102px × 縦110px、背景白、2pxの黒枠）
+の画像を生成するコードです。
+一番きれいに枠線を描画できる「全体を黒で塗りつぶした後に、内側を白で塗りつぶす」方法が確実です。
+📄 JavaScript実装コード
+javascript
+// 1. Canvas要素を作成（横102px、縦110px）
+const canvas = document.createElement('canvas');
+canvas.width = 102;
+canvas.height = 110;
+const ctx = canvas.getContext('2d');
+
+// 2. 全体を「黒（枠線の色）」で塗りつぶす
+ctx.fillStyle = '#000000';
+ctx.fillRect(0, 0, 102, 110);
+
+// 3. 内側（2px引いた領域）を「白」で塗りつぶす
+// 左上(2, 2)から、横幅98px(102-4)、縦幅106px(110-4)の範囲
+ctx.fillStyle = '#FFFFFF';
+ctx.fillRect(2, 2, 98, 106);
+
+// 4. JPEG画像としてデータURL（Base64）に変換
+const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.9);
+
+// （参考）画面に画像を表示したい場合
+const img = new Image();
+img.src = jpegDataUrl;
+document.body.appendChild(img);
+コードは注意してご使用ください。
+
+💡 補足・解説
+描画の仕組み: strokeRectで線を引くと中心線から左右に太さが分散してぼやける原因になるため、
+fillRect（塗りつぶし）を2回重ねて確実に1ピクセル単位で正確な2pxの黒枠を作っています。
+JPG出力: canvas.toDataURL('image/jpeg') を指定することで、透過（アルファチャンネル）
+のないJPG形式のデータとして出力できます。
+このコードをそのままブラウザのスクリプトとして実行するか、HTMLの<script>タグ内に
+貼り付けてご使用ください。
+
+作成した画像をローカルに自動保存（ダウンロード）する機能もコードに追加できますが、
+実装いたしますか？

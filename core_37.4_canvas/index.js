@@ -1,6 +1,6 @@
 // C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.4_canvas\index.js
 
-// ex-14.1, The <canvThe> element 
+// ex-14.1, The <canvas> element 
 
 
 // ex-14.2, The rendering context 

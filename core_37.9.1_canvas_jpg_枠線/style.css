@@ -14,22 +14,11 @@ hr {
         height: 5px;
         width: 80%; /* responsible */
                     /* 300px is ok too */
-    background-color: lime;
+    background-color: lightgray;
 }
 
-/* ex-17.x, */
-#canvas300, #canvas301,
-#canvas302, #canvas303,
-#canvas304, #canvas305,
-#canvas306, #canvas307,
-#canvas308 {
+/* ex-17.10 */
+#canvas {
     border: 1px solid black;
+    background-color: lightgray;    
 }
-
-/* ex-17.8 */
-/* 
-=error=
-.hidden {
-    display: none;
-} 
-*/

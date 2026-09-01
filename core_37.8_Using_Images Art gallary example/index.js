@@ -1,0 +1,87 @@
+// C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.7_Using_Images\index.js
+
+// ex-17.9, Using images, Art gallary exampl
+
+// mod.
+async function draw_gallary() {
+  // 1. すべての画像が確実に読み込まれるのを待つ（キャッシュ対策込み）
+  await Promise.all(
+    Array.from(document.images).map((image) => {
+      if (image.complete) return Promise.resolve(); // すでに読み込み完了していれば即パス
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve);
+        image.addEventListener("error", resolve); // エラー時もフリーズしないように対応
+      });
+    })
+  );
+
+  const frameImage = document.getElementById("frame");
+  if (!frameImage) return;
+
+  // 2. 画像のリストを取得（ループ中に要素が増えるのを防ぐため配列化）
+  const images = Array.from(document.images);
+
+  // 3. 各画像に対してキャンバスを作成して描画
+  for (const image of images) {
+    // 額縁画像自体はスキップ
+    if (image.id === "frame") continue;
+
+    // キャンバスを作成
+    const canvas = document.createElement("canvas");
+    canvas.width = 132;
+    canvas.height = 150;
+
+    // 元の画像の直前にキャンバスを挿入
+    image.parentNode.insertBefore(canvas, image);
+
+    // 元の画像は非表示にする（キャンバスに置き換えるため）
+    image.style.display = "block"; // "none"
+
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      // 絵の描画領域（額縁の内側）のサイズを指定して描画
+      // 引数: (画像, X座標, Y座標, 横幅, 縦幅)
+      ctx.drawImage(image, 15, 20, 102, 110);
+
+      // 額縁を上から重ねて描画
+      ctx.drawImage(frameImage, 0, 0, 132, 150);
+    }
+  }
+}
+// 実行
+draw_gallary();
+
+
+// old, MDNのexample
+// async function draw_gallary() {
+//   // Wait for all images to be loaded.
+//   await Promise.all(
+//     Array.from(document.images).map(
+//       (image) =>
+//         new Promise((resolve) => image.addEventListener("load", resolve)),
+//     ),
+//   );
+
+//   // Loop through all images.
+//   for (const image of document.images) {
+//     // Don't add a canvas for the frame image
+//     if (image.getAttribute("id") !== "frame") {
+//       // Create canvas element
+//       const canvas = document.createElement("canvas");
+//       canvas.setAttribute("width", 132);
+//       canvas.setAttribute("height", 150);
+
+//       // Insert before the image
+//       image.parentNode.insertBefore(canvas, image);
+
+//       ctx = canvas.getContext("2d");
+
+//       // Draw image to canvas
+//       ctx.drawImage(image, 15, 20);
+
+//       // Add frame
+//       ctx.drawImage(document.getElementById("frame"), 0, 0);
+//     }
+//   }
+// }
+// draw_gallary();

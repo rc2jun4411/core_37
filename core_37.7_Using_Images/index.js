@@ -126,3 +126,44 @@ function downloadCanvasImage(canvasId, filename) {
 
 // 初期表示：グラフを描画
 draw_graph();
+
+
+// ex-17.7, Using images, Example: Tiling an image
+
+function draw_tile() {
+  const ctx7 = document.getElementById("canvas307").getContext("2d");
+  const img7 = new Image();
+  img7.onload = () => {
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 3; j++) {
+        ctx7.drawImage(img7, j * 50, i * 38, 50, 38);
+      }
+    }
+  };
+  img7.src = "https://mdn.github.io/shared-assets/images/examples/rhino.jpg";
+}
+draw_tile();
+
+
+// ex-17.8, Using images, Slicing
+async function draw_slice() {
+  // Wait for all images to be loaded.
+  await Promise.all(
+    Array.from(document.images).map(
+      (image) =>
+        new Promise((resolve) => image.addEventListener("load", resolve)),
+    ),
+  );
+
+  const canvas = document.getElementById("#canvas308");
+  const ctx8 = canvas.getContext("2d");
+
+  // Draw slice
+  ctx8.drawImage(
+    document.getElementById("source"), 33, 71, 104, 124, 21, 20, 87, 104,
+  );
+
+  // Draw frame
+  ctx8.drawImage(document.getElementById("frame"), 0, 0);
+}
+draw_slice();

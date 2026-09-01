@@ -1,0 +1,97 @@
+ref 22. https://developer.mozilla.org/en-US/docs/Web/API/
+    22.1 https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/drawImage
+
+2026-08-31, 
+folder: "core_37.8_Using_Images Art gallary example"
+
+actions
+1. Preparations
+    copy folder from "core_37.7.1_canvas_API_drawImage"
+                to   "core_37.8_Using_Images Art gallary example"
+2. edit
+2.8 edit index.html, index.js, style.css per ref 22
+　・Art gallery example
+
+
+mod. chrome AI
+ご提示いただいたコードで画像が描画されない主な原因は、HTMLですでに読み込みが終わっている画像（キャッシュされた画像など）の load イベントを JavaScript が待ち続けてしまい、処理がそこで止まっているためです。
+また、ctx の変数宣言漏れや、drawImage のサイズ指定がないため、画像が枠からはみ出したり表示されなかったりする問題もあります。
+これらをすべて修正し、綺麗に額縁（フレーム）の中に絵が収まるように改良したJavaScriptコードを作成しました。
+## 修正版 JavaScript コード
+index.js の中身を以下のコードに差し替えてください。
+
+async function draw_gallary() {
+  // 1. すべての画像が確実に読み込まれるのを待つ（キャッシュ対策込み）
+  await Promise.all(
+    Array.from(document.images).map((image) => {
+      if (image.complete) return Promise.resolve(); // すでに読み込み完了していれば即パス
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve);
+        image.addEventListener("error", resolve); // エラー時もフリーズしないように対応
+      });
+    })
+  );
+
+  const frameImage = document.getElementById("frame");
+  if (!frameImage) return;
+
+  // 2. 画像のリストを取得（ループ中に要素が増えるのを防ぐため配列化）
+  const images = Array.from(document.images);
+
+  // 3. 各画像に対してキャンバスを作成して描画
+  for (const image of images) {
+    // 額縁画像自体はスキップ
+    if (image.id === "frame") continue;
+
+    // キャンバスを作成
+    const canvas = document.createElement("canvas");
+    canvas.width = 132;
+    canvas.height = 150;
+
+    // 元の画像の直前にキャンバスを挿入
+    image.parentNode.insertBefore(canvas, image);
+
+    // 元の画像は非表示にする（キャンバスに置き換えるため）
+    image.style.display = "none";
+
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      // 絵の描画領域（額縁の内側）のサイズを指定して描画
+      // 引数: (画像, X座標, Y座標, 横幅, 縦幅)
+      ctx.drawImage(image, 15, 20, 102, 110);
+
+      // 額縁を上から重ねて描画
+      ctx.drawImage(frameImage, 0, 0, 132, 150);
+    }
+  }
+}
+// 実行
+draw_gallary();
+
+## 主な修正ポイントと改善点
+
+   1. image.complete のチェックを追加（重要）
+   ブラウザがJavaScriptを実行する前に画像の読み込みを終えていた場合、load イベントは二度と発生しません。image.complete を見ることで、すでに読み込み済みの画像があってもフリーズせずに次へ進みます。
+   2. 元の画像を非表示に (image.style.display = "none")
+   元のコードでは、キャンバスを挿入した後に元の <img> タグがそのまま残るため、画面に「キャンバス（額縁入り）」と「元の生画像」の2つが並んで表示されてしまいます。元の画像は非表示に設定しました。
+   3. drawImage にサイズ指定を追加
+   ctx.drawImage(image, 15, 20) だけだと、用意した絵の元のサイズ（原寸大）で描画されてしまい、額縁からはみ出します。後ろに幅と高さを指定（例: 102, 110）することで、額縁の内側にぴったり収まるように縮小・拡大されます。
+   4. ctx の変数宣言
+   エラーを防ぐため、const ctx として正しくローカル変数を宣言しました。
+
+## 額縁と絵のサイズ調整について
+用意する canvas_picture_frame.png の「額縁の内側の白い部分（絵を入れるスペース）」に合わせて、コード内の以下の数値を調整してください。
+
+* ctx.drawImage(image, 15, 20, 102, 110);
+* 15: 額縁の左の枠線の太さ (X座標)
+   * 20: 額縁の上の枠線の太さ (Y座標)
+   * 102: 絵を表示する横幅
+   * 110: 絵を表示する縦幅
+
+これから8枚の絵を用意されるとのことですが、まずは上記のコードでお手持ちの適当な画像を使ってテストしてみてください。
+次に進めるために、以下の点について教えていただけますか？
+
+* 額縁画像（canvas_picture_frame.png）の内側の正確な余白サイズ（何ピクセル目から絵を入れたいか）
+* 用意する8枚の絵の縦横比（正方形、横長、縦長など、額縁と比率が合わない場合の自動トリミングが必要か）
+
+
