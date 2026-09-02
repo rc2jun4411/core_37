@@ -106,3 +106,40 @@ draw_gallary();
 （何ピクセル目から絵を入れたいか）
 * 用意する8枚の絵の縦横比（正方形、横長、縦長など、額縁と比率が
 合わない場合の自動トリミングが必要か）
+
+
+===================================================================
+Claude: 2026-09-02am
+Q1: canvas picture gallery, 
+  額縁内(canvas_picture_frame.png)に8枚画像（gallery_1～gallery_8）を
+  入れて描画する。助けてください。
+A1: 
+Also, the leftover unused `<canvas id="canvas" width="130" height="140">` 
+above the table isn't used by the script and is likely a stray element 
+from an earlier exercise — 
+I'll remove it to avoid confusion.
+
+8枚とも額縁にきれいに収まりました(gallery_1〜8.jpgの中身自体が
+ほぼ白背景の画像なので絵は薄く見えていますが、
+これは元データの問題で、レイアウトは正常です)。
+
+**原因と修正点**
+1. `canvas_picture_frame.png` は
+  実際には **117×126px**（コード上の132×150という想定と不一致)。
+
+2. 額縁の内側の白い描画スペースを実測したところ、
+  **左上(17, 9)から幅84×高さ104px** でした（コードは15,20,102,110
+  を使用しており、右・下がフレームからはみ出す/ズレる原因になっていました)。
+
+3. `index.js` の該当行を実測値に合わせて修正：
+   ```js
+   ctx.drawImage(image, 17, 9, 84, 104);
+   ```
+4. HTML冒頭にあった未使用の `<canvas id="canvas" width="130" height="140">`
+ は本編と無関係な残骸だったので削除しました。
+
+修正済みファイル一式を outputs フォルダにまとめました。
+もし絵の写り方（余白の比率）を微調整したい場合は、
+`ctx.drawImage(image, 17, 9, 84, 104)` の4つの数値をいじれば
+額縁内の絵のサイズ・位置を変えられます。
+
