@@ -1,0 +1,19 @@
+img pixcel size
+.
+├── canvas_picture_frame.png  117 x 126 (外縁)
+|                              84 x 104 (内側の白い部分) 
+├── favicon.ico
+├── gallery_1.jpg             102 x 110
+├── gallery_2.jpg             102 x 110
+├── gallery_3.jpg             102 x 110
+├── gallery_4.jpg             102 x 110
+├── gallery_5.jpg             102 x 110
+├── gallery_6.jpg             102 x 110
+├── gallery_7.jpg             102 x 110
+├── gallery_8.jpg             102 x 110
+|
+├── index.html
+├── index.js
+├── memo.txt
+├── memo_img.txt (今見てる text file)
+└── style.css

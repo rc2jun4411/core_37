@@ -1,8 +1,8 @@
-// C:\Users\rc2ju\Desktop\files\index.js
+// C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.8a_Using_Images Art gallary example_Claude\index.js
 
 // ex-17.9, Using images, Art gallary example
 
-// mod.
+// mod. Claude
 async function draw_gallary() {
   // 1. すべての画像が確実に読み込まれるのを待つ
   await Promise.all(
@@ -29,8 +29,8 @@ async function draw_gallary() {
   // 2. 画像のリストを取得
   const images = Array.from(document.images);
   // フレーム画像の実際のサイズを取得
-  const frameWidth = frameImage.naturalWidth || frameImage.width || 132;
-  const frameHeight = frameImage.naturalHeight || frameImage.height || 150;
+  const frameWidth = frameImage.naturalWidth || frameImage.width || 117;
+  const frameHeight = frameImage.naturalHeight || frameImage.height || 126;
 
   // 3. 各画像に対してキャンバスを作成して描画
   for (const image of images) {
@@ -63,41 +63,5 @@ async function draw_gallary() {
     }
   }
 }
-
 // 実行
 draw_gallary();
-
-
-// old, MDNのexample
-// async function draw_gallary() {
-//   // Wait for all images to be loaded.
-//   await Promise.all(
-//     Array.from(document.images).map(
-//       (image) =>
-//         new Promise((resolve) => image.addEventListener("load", resolve)),
-//     ),
-//   );
-
-//   // Loop through all images.
-//   for (const image of document.images) {
-//     // Don't add a canvas for the frame image
-//     if (image.getAttribute("id") !== "frame") {
-//       // Create canvas element
-//       const canvas = document.createElement("canvas");
-//       canvas.setAttribute("width", 132);
-//       canvas.setAttribute("height", 150);
-
-//       // Insert before the image
-//       image.parentNode.insertBefore(canvas, image);
-
-//       ctx = canvas.getContext("2d");
-
-//       // Draw image to canvas
-//       ctx.drawImage(image, 15, 20);
-
-//       // Add frame
-//       ctx.drawImage(document.getElementById("frame"), 0, 0);
-//     }
-//   }
-// }
-// draw_gallary();
