@@ -1,16 +1,16 @@
 // C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.7_Using_Images\index.js
 
-// ex-17.9, Using images, Art gallary exampl
+// ex-17.9, Using images, Art gallary example
 
 // mod.
 async function draw_gallary() {
-  // 1. すべての画像が確実に読み込まれるのを待つ（キャッシュ対策込み）
+  // 1. すべての画像が確実に読み込まれるのを待つ
   await Promise.all(
     Array.from(document.images).map((image) => {
-      if (image.complete) return Promise.resolve(); // すでに読み込み完了していれば即パス
+      if (image.complete) return Promise.resolve();
       return new Promise((resolve) => {
         image.addEventListener("load", resolve);
-        image.addEventListener("error", resolve); // エラー時もフリーズしないように対応
+        image.addEventListener("error", resolve);
       });
     })
   );
@@ -18,8 +18,19 @@ async function draw_gallary() {
   const frameImage = document.getElementById("frame");
   if (!frameImage) return;
 
-  // 2. 画像のリストを取得（ループ中に要素が増えるのを防ぐため配列化）
+  // フレーム画像が読み込まれるまで待つ
+  if (!frameImage.complete) {
+    await new Promise((resolve) => {
+      frameImage.addEventListener("load", resolve);
+      frameImage.addEventListener("error", resolve);
+    });
+  }
+
+  // 2. 画像のリストを取得
   const images = Array.from(document.images);
+  // フレーム画像の実際のサイズを取得
+  const frameWidth = frameImage.naturalWidth || frameImage.width || 132;
+  const frameHeight = frameImage.naturalHeight || frameImage.height || 150;
 
   // 3. 各画像に対してキャンバスを作成して描画
   for (const image of images) {
@@ -28,26 +39,29 @@ async function draw_gallary() {
 
     // キャンバスを作成
     const canvas = document.createElement("canvas");
-    canvas.width = 132;
-    canvas.height = 150;
+    canvas.width = frameWidth;
+    canvas.height = frameHeight;
 
     // 元の画像の直前にキャンバスを挿入
     image.parentNode.insertBefore(canvas, image);
 
     // 元の画像は非表示にする（キャンバスに置き換えるため）
-    image.style.display = "block"; // "none"
+    image.style.display = "none";
 
     const ctx = canvas.getContext("2d");
     if (ctx) {
+      // 背景を透明にクリア
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
       // 絵の描画領域（額縁の内側）のサイズを指定して描画
-      // 引数: (画像, X座標, Y座標, 横幅, 縦幅)
       ctx.drawImage(image, 15, 20, 102, 110);
 
       // 額縁を上から重ねて描画
-      ctx.drawImage(frameImage, 0, 0, 132, 150);
+      ctx.drawImage(frameImage, 0, 0, frameWidth, frameHeight);
     }
   }
 }
+
 // 実行
 draw_gallary();
 

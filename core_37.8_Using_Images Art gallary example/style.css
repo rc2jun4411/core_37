@@ -28,8 +28,25 @@ hr {
     margin: 10px;
 } */
 
+/* body {
+    display: block;
+    margin: 8px;
+} */
+
 img {
     display: none;
+}
+
+img#frame {
+    display: none !important;
+}
+
+canvas {
+    display: block !important;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: white !important;
 }
 
 table {

@@ -50,7 +50,7 @@ html; <!doctype html>
 </body>
 </html>
 
-A:
+A(Jemini):
 提示いただいたコードでうまく描画できない原因は、JavaScript側で新しく別のCanvasを
 作成してしまっており、HTML側にある width="152" height="160" のCanvasと連動して
 いないためです。また、JavaScript内のサイズ設定（102 や 110）も、広げたいサイズ
@@ -60,7 +60,8 @@ A:
 「横152 × 縦160」のキャンバスに対して、内側に「横102 × 縦110」の枠線付きの
 四角形を描画するコードです。
 
-javascript
+javascript:
+
 // 1. HTML側にあるCanvas要素（横152 x 縦160）をIDで取得する
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
