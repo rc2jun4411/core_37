@@ -1,4 +1,4 @@
-// C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.7_Using_Images\index.js
+// C:\Users\rc2ju\Desktop\files\index.js
 
 // ex-17.9, Using images, Art gallary example
 

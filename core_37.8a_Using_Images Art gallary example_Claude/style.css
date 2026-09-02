@@ -17,22 +17,6 @@ hr {
     background-color: lime;
 }
 
-/* ex-17.x, */
-#canvas500 {
-    border: 1px solid black;
-}
-
-/* ex-17.9 */
-/* body {
-    background: 0 -100px repeat-x url("bg_gallery.png") #4f191a;
-    margin: 10px;
-} */
-
-/* body {
-    display: block;
-    margin: 8px;
-} */
-
 img {
     display: none;
 }
