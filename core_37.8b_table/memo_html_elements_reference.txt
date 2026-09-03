@@ -15,7 +15,7 @@ ref 1. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
     1.6 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/td
        <td></td> HTML table data cell element 
        
-    1.1.1 https://developer.mozilla.org/en-US/docs/Learn_web_development/
+ref. 1.1.1 https://developer.mozilla.org/en-US/docs/Learn_web_development/
             Core/Structuring_content/Table_accessibility
       In this article:
        ・Recap: Tables for visually impaired users
@@ -34,4 +34,22 @@ actions
     copy folder from "core_37.8_HTML_table_element"
                 to   "core_37.8b_table"
 2. edit
-2.9 edit index.html, index.js, style.css per ref 1.1.1 => ex-19.1
+2.9 edit index.html, index.js, style.css per ref 1.1.1 
+  => ex-19.1
+   ・Recap: Tables for visually impaired users
+   ・Adding a caption to your table with <caption>
+   ・Adding structure with <thead>, <tbody>, and <tfoot>
+   ・The scope attribute
+      scope="col", scope="row"
+
+  => ex-19.2, ex-19.3
+   ・The scope attribute, The id and headers attributes
+
+  => 
+     Playing with scope and headers
+ 
+ ref. 1.1.2 https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold.html     
+ ref. 1.1.3 https://github.com/mdn/learning-area/blob/main/html/tables/advanced/minimal-table.css 
+ 
+ ref. 1.1.4 https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-scope.html
+ ref. 1.1.5 https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-headers.html
