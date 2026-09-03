@@ -1,0 +1,206 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_37\style.css */
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+        border-top: 3px double #333333;
+        color: #333333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 80%; /* responsible */
+                    /* 300px is ok too */
+    background-color: lime;
+}
+
+
+/* ex-18.1 HTML table element*/
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+    color:rgb(12, 138, 180);
+}
+
+
+thead,
+tfoot {
+    background-color: rgb(228 240 245);
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+}
+
+td:last-of-type {
+    text-align: center;
+}
+
+tbody>tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+}
+
+tfoot th {
+    text-align: right;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
+
+/* ex-18.3*/
+#table1 {
+    border: 2px solid rgb(140 140 140);
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+}
+
+/* ex-18.8 */
+#table6 {
+    border: 2px solid rgb(140 140 140);
+    font:
+        16px "Open Sans",
+        "Helvetica",
+        "Arial",
+        sans-serif;
+}
+
+thead>tr,
+tfoot>tr {
+    background-color: rgb(228 240 245);
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+}
+
+/* ex-18.9 */
+#table7 {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 2px solid rgb(140 140 140);
+    font:
+        16px "Open Sans",
+        "Helvetica",
+        "Arial",
+        sans-serif;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 4px 6px;
+}
+
+th {
+  vertical-align: bottom;
+}
+
+thead>tr {
+    background-color: rgb(228 240 245);
+}
+
+thead>tr:nth-of-type(2) {
+    border-bottom: 2px solid rgb(140 140 140);
+}
+
+thead>tr:last-of-type>th:nth-of-type(1) {
+    background-color: rgb(225 255 225);
+}
+
+thead>tr:last-of-type>th:nth-of-type(2) {
+    background-color: rgb(255 225 225);
+}
+
+tbody > tr > th:first-of-type {
+  text-align: left;
+  background-color: rgb(225 229 244);
+}
+
+tbody>tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+}
+
+tbody>tr>td:last-of-type {
+    text-align: right;
+}
+
+tfoot>tr {
+    border-top: 2px dashed rgb(140 140 140);
+    background-color: rgb(228 240 245);
+}
+
+tfoot th,
+tfoot td {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* ex-18.10 */
+#table8,
+th,
+td {
+    border: 1px solid black;
+}
+
+#table8 {
+    overflow: auto;
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+tbody {
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: white;
+    vertical-align: bottom;
+}
+
+th:last-child,
+td:last-child {
+    border-right-width: 0;
+}
+
+tr:last-child td {
+    border-bottom-width: 0;
+}
