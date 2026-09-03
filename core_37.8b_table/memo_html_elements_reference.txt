@@ -15,4 +15,23 @@ ref 1. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements
     1.6 https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/td
        <td></td> HTML table data cell element 
        
-         
+    1.1.1 https://developer.mozilla.org/en-US/docs/Learn_web_development/
+            Core/Structuring_content/Table_accessibility
+      In this article:
+       ・Recap: Tables for visually impaired users
+       ・Adding a caption to your table with <caption>
+       ・Adding structure with <thead>, <tbody>, and <tfoot>
+       ・The scope attribute
+       ・The id and headers attributes
+       ・Playing with scope and headers
+       ・Summary    
+
+2026-09-03, 
+folder: "core_37.8b_table"
+
+actions
+1. Preparations
+    copy folder from "core_37.8_HTML_table_element"
+                to   "core_37.8b_table"
+2. edit
+2.9 edit index.html, index.js, style.css per ref 1.1.1 => ex-19.1

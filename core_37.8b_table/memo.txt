@@ -1,0 +1,75 @@
+ref 23. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/
+　　Elements/table
+  　In this article;
+    ・Try it
+    ・Attributes pass
+    ・Visual layout of table contents
+    ・Accessibility
+    ・Examples
+    
+2026-09-02, 
+folder: "core_37.8_HTML_table_element"
+
+actions
+1. Preparations
+    copy folder from "core_37.8a_Using_Images Art gallary example"
+                to   "core_37.8_HTML_table_element"
+2. edit
+2.8 edit index.html, index.js, style.css per ref 23
+・Try it => ex-18.1
+
+・Visual layout of table contents
+ elements are part of the table structure:
+  <caption>
+  <thead>
+  <colgroup>
+  <col>
+  <th>
+  <tbody>
+  <tr>
+  <td>
+  <tfoot>
+ Table layers and transparency:
+  see table_element_layers.png
+
+ Accessibility;
+  Captions:
+   By supplying a <caption> element whose value clearly and 
+   concisely describes the table's purpose, 
+   it helps the people decide if they need to check the rest of 
+   the table content or skip over it.
+  
+  Scoping rows and columns:
+   <th></th>
+
+   The scope attribute on header cells (<th> elements) is 
+   redundant in simple contexts, because scope is inferred. 
+   However, some assistive technologies may fail to draw 
+   correct inferences, so specifying header scope may improve 
+   user experiences. 
+   In complex tables, scope can be specified to provide 
+   necessary information about the cells related to a header.
+
+  Complicated tables:
+   Assistive technologies such as screen readers may have 
+   difficulty parsing tables that are so complex that header 
+   cells can't be associated in a strictly horizontal or 
+   vertical way. 
+   This is typically indicated by the presence of the colspan 
+   and rowspan attributes.
+   If the table cannot be broken apart, use a combination of 
+   the id and headers attributes to programmatically associate
+   each table cell with the header(s) (<th> elements) the cell 
+   is associated with.
+  
+  Examples:
+  0. Try it => ex-18.1
+  1. Basic table => ex-18.2
+  2. Expanded table with header cells => ex-18.3
+  3. Specifying table cell relations  "scope" "th" => ex-18.4
+  4. Explicitly specifying table section groups "tbody" => ex-18.5
+  5. Column and row spanning => ex-18.6
+  6. Table caption and column summary => ex-18.7
+  7. Basic table styling => ex-18.8
+  8. Advanced table styling => ex-18.9
+  9. Displaying large tables in small spaces => ex-18.10

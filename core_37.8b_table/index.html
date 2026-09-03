@@ -1,0 +1,83 @@
+<!-- C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.8b_table\index.html-->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" />
+  <title>HTML "table" element</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a>"ex-19.1; table element"<br>
+     Adding structure to a spending record table<br></a>
+    <h1>My spending record</h1>
+    
+    <table>
+      <caption>
+        How I chose to spend my money
+      </caption>
+      <thead></thead>
+      <tr>
+        <!--unambiguously define the column headers as column headers-->
+        <th scope="col">Purchase</th>
+        <th scope="col">Location</th>
+        <th scope="col">Date</th>
+        <th scope="col">Evaluation</th>
+        <th scope="col">Cost (€)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr> <!--左から端から右方向へ並ぶ 
+               "<tr>" HTML table row element -->
+        <!-- each row could have a header defined like <td scope="row">-->
+        <td scope="row">Haircut</td>
+        <td>Hairdresser</td>
+        <td>12/09</td>
+        <td>Great idea</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Lasagna</td>
+        <td>Restaurant</td>
+        <td>12/09</td>
+        <td>Regrets</td>
+        <td>18</td>
+      </tr>
+      <tr>
+        <td scope="row">Shoes</td>
+        <td>Shoe shop</td>
+        <td>13/09</td>
+        <td>Big regrets</td>
+        <td>65</td>
+      </tr>
+      <tr>
+        <td scope="row">Toothpaste</td>
+        <td>Supermarket</td>
+        <td>13/09</td>
+        <td>Good</td>
+        <td>5</td>
+      </tr>
+    </tbody>
+
+        <td scope="row">Bus ticket</td>
+        <td>Bus station</td>
+        <td>14/09</td>
+        <td>Good</td>
+        <td>0</td>
+    <tfoot>
+      <tr>
+        <td colspan="4">SUM</td>
+        <td>118</td>
+      </tr>
+    </tfoot>
+    </table>
+  <hr class="hr1">
+
+  <hr>
+  <script src="index.js" defer></script>
+</body>
+</html>

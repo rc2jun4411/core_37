@@ -1,0 +1,88 @@
+/* C:\Users\rc2ju\OneDrive\Documents\core_37\core_37.8b_table\style.css */
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+        border-top: 3px double #333333;
+        color: #333333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 80%; /* responsible */
+                    /* 300px is ok too */
+    background-color: lime;
+}
+
+/* ex-19.1 HTML table element*/
+/* per ref 1.1.1 Adding structure to a spending record table */
+html {
+    font-family: sans-serif;
+    background-color: lightcyan;
+}
+
+body {
+    margin: 10; /*htmlの10px内側にbodyを描画*/
+    padding: 0;
+    background-color: lightskyblue;
+}
+
+table {
+    border-collapse: collapse; 
+    /* border-collapse: collapse; は、表（<table>）
+       の隣り合うセルの枠線を重ねて、1本の線として表示 */
+    border: 2px solid rgb(255 0 0);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    /* Displaying large tables in small spaces */
+    overflow: auto;
+      width: 100%;
+      max-width: 600px;
+      height: 240px;
+      display: block;
+      margin: 0 auto;
+      border-spacing: 0;
+}
+
+td,
+th {
+    border: 1px solid rgb(190 190 190);
+    padding: 10px 20px;
+}
+
+/* <th> HTML table header element */
+th {
+    background-color: rgb(235 200 235);
+}
+/* <td> HTML table data cell element */
+td {
+    text-align: center;
+}
+
+/* <tr> HTML table row element */
+tr:nth-child(even) td {
+    background-color: rgb(250 250 200);
+}
+
+tr:nth-child(odd) td {
+    background-color: rgb(245 245 245);
+}
+
+caption {
+    padding: 10px;
+    color:blue;
+    font-weight: bold;
+}
+
+tbody {
+    font-size: 95%;
+    font-style: italic;
+}
+
+tfoot {
+    font-weight: bold;
+    color:red;
+}
