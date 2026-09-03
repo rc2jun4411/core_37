@@ -6,7 +6,6 @@ ref 23. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/
     ・Visual layout of table contents
     ・Accessibility
     ・Examples
-ref 23.1     
     
 2026-09-02, 
 folder: "core_37.8_HTML_table_element"
@@ -42,7 +41,7 @@ actions
   
   Scoping rows and columns:
    <th></th>
-   
+
    The scope attribute on header cells (<th> elements) is 
    redundant in simple contexts, because scope is inferred. 
    However, some assistive technologies may fail to draw 
@@ -64,4 +63,13 @@ actions
    is associated with.
   
   Examples:
+  0. Try it => ex-18.1
   1. Basic table => ex-18.2
+  2. Expanded table with header cells => ex-18.3
+  3. Specifying table cell relations  "scope" "th" => ex-18.4
+  4. Explicitly specifying table section groups "tbody" => ex-18.5
+  5. Column and row spanning => ex-18.6
+  6. Table caption and column summary => ex-18.7
+  7. Basic table styling => ex-18.8
+  8. Advanced table styling => ex-18.9
+  9. Displaying large tables in small spaces => ex-18.10
