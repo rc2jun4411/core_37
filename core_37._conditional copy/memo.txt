@@ -9,7 +9,7 @@ ref 15. https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/
         ・Adding more color choices
 
 Summary
-2026-09-26, 
+2026-08-26, 
 folder: "core_37.2_conditional"
 
 actions
