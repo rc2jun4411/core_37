@@ -8,12 +8,12 @@ ref 26.1 https://developer.mozilla.org/en-US/docs/Web/API/
         Canvas_API/Tutorial/Drawing_shapes    
 
 2026-09-05, 
-folder: "core_37.10_canvas_Transformations"
+folder: "core_37.10_canvas_Transformations_clipping"
 
 actions;
 1. Preparations
     copy folder from "core_37.10_canvas_Transformations"
-                to   "core_37.10_canvas_Transformations"
+                to   "core_37.10_canvas_Transformations_clipping"
 2. edit
 2.9 edit index.html, index.js, style.css per ref 26.
  ・globalCompositeOperation 

@@ -1,0 +1,54 @@
+ref 27. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations
+     In this article;
+　　　　・Basic animation steps
+　　　　・Controlling an animation
+　　　　・An animated solar system
+　　　　・An animated clock
+　　　　・A looping panorama
+　　　　・Mouse following animation
+　　　　・Other examples   
+
+2026-09-05, 
+folder: "core_37.11_canvas_Basic animations"
+
+actions;
+1. Preparations
+    copy folder from "core_37.10_canvas_Transformations"
+                to   "core_37.11_canvas_Basic animations"        
+2. edit
+2.9 edit index.html, index.js, style.css per ref 27.
+
+　・Basic animation steps
+    1. Clear the canvas
+        Unless the shapes you'll be drawing fill the complete canvas 
+        (for instance a backdrop image), you need to clear any shapes 
+        that have been drawn previously. 
+        The easiest way to do this is using the clearRect() method.
+    2．Save the canvas state 
+        If you're changing any setting (such as styles, transformations, etc.) 
+        which affect the canvas state and you want to make sure the 
+        original state is used each time a frame is drawn, 
+        you need to save that original state.
+    3. Draw animated shapes
+        The step where you do the actual frame rendering.
+    4. Restore the canvas state
+        If you've saved the state, restore it before drawing a new frame.
+
+  ・Controlling an animation
+    Scheduled updates;
+     setInterval(), 
+     setTimeout(), and 
+     requestAnimationFrame()
+
+Examples;
+1. An animated solar system => ex-21.1 done
+ ref 27.1 https://github.com/mdn/translated-contentがｚ/issues/18059
+  それぞれの画像の URL は、以下のとおりです。
+  https://live.mdnplay.dev/ja/docs/Web/API/Canvas_API/Tutorial/Basic_animations/canvas_sun.png
+  https://live.mdnplay.dev/ja/docs/Web/API/Canvas_API/Tutorial/Basic_animations/canvas_moon.png
+  https://live.mdnplay.dev/ja/docs/Web/API/Canvas_API/Tutorial/Basic_animations/canvas_earth.png
+
+2. An animated clock  => ex-21.2 done
+3. A looping panorama => ex-21.3 done
+4. Mouse following animation => ex-21.4 working, not rendered yet ????
+ 
