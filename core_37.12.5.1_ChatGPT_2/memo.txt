@@ -1,0 +1,100 @@
+ref 28.1 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
+        Window: requestAnimationFrame() method
+      In this article;
+        ・Syntax
+        ・Examples
+
+2026-09-05, 
+folder: "core_37.12.5_window_requestAnimationFrame() method
+        \core_37.12.5.1_ChatGPT_2"
+
+actions;
+1. Preparations
+    copy folder from "core_37.12.4_canvas_Advanced_animations"
+                to   "core_37.12.5.1_ChatGPT_1"       
+2. edit
+2.10.0 ask google AI/ChatGPT at Chrome.
+
+Q3: 
+マウス操作するためのstart buttonとstop buttonを追加してください？
+A3:
+Canvasアニメーションをマウスで制御（開始・停止）できるように、HTMLの
+ボタン要素と、JavaScriptの制御ロジックを追加します。
+アニメーションの停止には、requestAnimationFrame の戻り値（ID）を 
+cancelAnimationFrame に渡す方法を使用します。
+
+1. HTML の準備Canvas要素の下に、開始・停止ボタンを配置します。  
+<canvas id="myCanvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+<div>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn" disabled>Stop</button>
+</div>
+
+2. JavaScript
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+const startBtn = document.getElementById("startBtn");
+const stopBtn = document.getElementById("stopBtn");
+
+// ボールの初期状態
+let x = 50;
+let y = 50;
+let dx = 2;
+let dy = 3;
+const radius = 15;
+
+let animationId = null; // アニメーションを管理するID
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // ボールの描画
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+
+  // 壁との衝突判定
+  if (x + dx > canvas.width - radius || x + dx < radius) dx = -dx;
+  if (y + dy > canvas.height - radius || y + dy < radius) dy = -dy;
+
+  x += dx;
+  y += dy;
+
+  // ループを継続し、IDを保存
+  animationId = requestAnimationFrame(animate);
+}
+
+// 描画開始の処理
+function startAnimation() {
+  if (!animationId) { // 二重起動を防止
+    animationId = requestAnimationFrame(animate);
+    
+    // ボタンの活性・非活性を切り替え
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+  }
+}
+
+// 描画停止の処理
+function stopAnimation() {
+  if (animationId) {
+    cancelAnimationFrame(animationId); // アニメーションを止める
+    animationId = null; // IDをリセット
+    
+    // ボタンの活性・非活性を切り替え
+    startBtn.disabled = false;
+    stopBtn.disabled = true;
+  }
+}
+
+// ボタンにクリックイベントを設定
+startBtn.addEventListener("click", startAnimation);
+stopBtn.addEventListener("click", stopAnimation);
+
+// 初期状態としてアニメーションを開始しておく場合（不要なら消してもOK）
+startAnimation();
+コードは注意してご使用ください。
+=> ex-23.2 

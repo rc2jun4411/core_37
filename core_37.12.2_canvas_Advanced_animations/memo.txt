@@ -1,0 +1,23 @@
+ref 28. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations
+        In this article;
+         ・Drawing a ball
+         ・Adding velocity
+         ・Boundaries
+         ・Acceleration
+         ・Trailing effect
+         ・Adding mouse control
+         ・Breakout
+
+2026-09-05, 
+folder: "core_37.12_canvas_Advanced_animations"
+
+actions;
+1. Preparations
+    copy folder from "core_37.11_canvas_Basic animations" 
+                to   "core_37.12_canvas_Advanced_animations"       
+2. edit
+2.10 edit index.html, index.js, style.css per ref 28.
+ ・Drawing a ball
+ ・Adding velocity
+ ・Boundaries
+ ・Acceleration => ex-22.2

@@ -1,0 +1,100 @@
+ref 28.1 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
+        Window: requestAnimationFrame() method
+      In this article;
+        ・Syntax
+        ・Examples
+
+2026-09-05, 
+folder: "core_37.12.5.1_Gemini_1"
+
+actions;
+1. Preparations
+    copy folder from "core_37.12.4_canvas_Advanced_animations"
+                to   "core_37.12.5.1_Gemini_1"       
+2. edit
+2.10.0 ask google AI/Gemini at Chrome.
+
+Q1: canvas const element = document.getElementById("some-element
+ -you-want-to-animate");
+A1: Window: requestAnimationFrame() method. This code starts a 
+ step function that tracks time and updates the element position 
+ or canvas frame on every screen refresh. 
+
+JS(same as ref 28.1);
+const element = document.getElementById("some-element-you-want-to-animate");
+let start = null;
+
+function step(timestamp) {
+  if (start === null) start = timestamp;
+  const progress = timestamp - start;
+  
+  // Move element right by up to 200px
+  element.style.transform = `translateX(${Math.min(progress / 10, 200)}px)`;
+
+  if (progress < 2000) {
+    requestAnimationFrame(step);
+  }
+}
+requestAnimationFrame(step);
+ 
+
+Gemini: Do you want to move an HTML element or draw on a 2D Canvas?
+JK: Yes
+A2:
+HTML の準備まず、描画対象となる <canvas> 要素をHTMLに用意します。
+html<canvas id="myCanvas" width="400" height="300" style="border: 1px solid black;"></canvas>
+コードは注意してご使用ください。
+
+JavaScript アニメーションコードjavascriptconst canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+// ボールの初期状態
+let x = 50;
+let y = 50;
+let dx = 2; // X軸の移動速度
+let dy = 3; // Y軸の移動速度
+const radius = 15;
+
+function animate() {
+  // 1. 前のフレームの描画をクリア
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // 2. ボールを描画
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+
+  // 3. 壁との衝突判定（跳ね返り）
+  if (x + dx > canvas.width - radius || x + dx < radius) {
+    dx = -dx;
+  }
+  if (y + dy > canvas.height - radius || y + dy < radius) {
+    dy = -dy;
+  }
+
+  // 4. 座標を更新
+  x += dx;
+  y += dy;
+
+  // 5. 次のフレームをリクエスト
+  requestAnimationFrame(animate);
+}
+
+// アニメーションを開始
+requestAnimationFrame(animate);
+コードは注意してご使用ください。
+実装のポイント;
+getContext("2d"): 
+  Canvasに2Dグラフィックスを描画するためのコンテキストを取得します。
+clearRect(): 
+  これを忘れると、前のフレームの描画が残り、線のように伸びてしまいます。
+  毎フレーム必ず全画面を消去します。
+状態の更新: 
+  描画したあとに座標（x, y）を変化させることで、次のフレームで動いて
+  いるように見せます。次に進めるために、以下の点について教えてください。
+  
+  どのようなオブジェクトを描画したいですか？（円、四角形、画像など）
+  マウス操作やキーボードによる **インタラクション（操作）**は追加したいですか？
+ => ex-23.1 done.
