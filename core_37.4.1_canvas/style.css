@@ -1,0 +1,31 @@
+/* C:\Users\rc2ju\Documents\VScode_edit\core_37\core_37.4.1_canvas\style.css */
+hr {
+    border: none;
+    height: 2px;
+    background-color: cyan;
+}
+
+.hr1 {
+    border: none;
+        border-top: 3px double #333333;
+        color: #333333;
+        overflow: visible;
+        text-align: center;
+        height: 5px;
+        width: 80%; /* responsible */
+                    /* 300px is ok too */
+    background-color: lime;
+}
+.hr1::after {
+    background: white;
+    content: "'🩷'"; /* § */
+    padding: 4px;
+    position: relative;
+    top: -13px;
+    color: red;
+}
+
+/* ex-14.9.10 */
+#canvas991,#canvas992  {
+    border: 1px solid blueviolet;
+}

@@ -1,0 +1,92 @@
+ref 18. https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+    In this article;
+     ・The grid
+     ・Drawing rectangles
+     ・Seeing blurry edges?
+     ・Drawing paths
+     ・Path2D objects
+
+2026-09-20, 
+folder: "core_37.4.1_canvas"
+
+actions
+1. Preparations
+1.1 copy folder from "core_37.4_canvas"
+                to   "core_37.4.1_canvas"
+2. edit
+2.4.1 Drawing shapes with canvas, per ref 18.
+ 1. create two canvas
+ ask Gemini,
+Q1:
+  canvasを2枚用意できました。javascript: step-1, step-2の
+描画はok, step-3でinnerHTMLを使ってvariableを左のcanvasに
+書き出しましたが、canvas内の左上に張り付いてしまいました？
+ codeを送ります。 
+A1:
+  innerHTMLで取得した文字列をそのままCanvasの描画処理（draw_text）
+へ引き渡しているため、1行目と同じ描画位置（y = 20）にテキストが
+上書き重畳されて左上に張り付いた状態になっています。
+  原因と解決策は以下の通りです。:
+
+重なってしまう原因:
+  描画座標が同じである, draw_text 関数の中で 
+ctx.fillText(text, 0, 20); と Y座標が 20（固定）に指定されています。
+そのため、step-1で書いた「canvas991, text1」と全く同じ位置に 
+step-3の文字列が上書きされています。
+描画位置が画像や枠線と被っている:
+  X座標が 0 のため、Canvasの左端ピッタリから描画が始まり重なって
+見えます。
+
+修正方法:
+  draw_text 関数で文字を書く位置（X座標・Y座標）を指定できるように
+変更するか、step-3の描画呼び出し時に改行用の座標を渡すように修正します。
+  JSコードの修正例:
+draw_text に x と y の引数を追加します。
+
+// step-1 add text into two canvas.
+// X座標(x)とY座標(y)を受け取れるように変更
+function draw_text(can, text, x = 0, y = 20) {
+  const ctx = document.getElementById(can).getContext("2d");
+  ctx.font = "18px serif";
+  ctx.fillText(text, x, y);
+}
+
+let can1 = "canvas991";
+let text1 = "canvas991, text1";
+draw_text(can1, text1, 5, 20); // 少し右寄りに表示 (x:5, y:20)
+
+let can2 = "canvas992";
+let text2 = "canvas992, text2";
+draw_text(can2, text2, 5, 20);
+
+// step-2 add img into two canvas.
+function draw_img(can, imgg) {
+  const ctx = document.getElementById(can).getContext("2d");
+  const img = new Image();
+  img.addEventListener("load", () => {
+    // 画像は Y=25 から配置
+    ctx.drawImage(img, 5, 25, 70, 50); 
+  });
+  img.src = imgg;
+}
+
+let img1 = "cat-16px-1.png";
+draw_img(can1, img1);
+let img2 = "cat-16px-2.png";
+draw_img(can2, img2);
+
+// step-3 show variables into canvas
+const myInt = 5;
+const myFloat = 6.667;
+console.log(myInt, myFloat);
+
+const headingA = document.querySelector("#heading_A");
+headingA.innerHTML = `myInt = ${myInt} , variable type =(${typeof myInt})`;
+
+let can3 = "canvas991";
+let text3 = headingA.innerHTML;
+
+// 画像（高さ50px）や1行目の下に来るよう Y座標を 95 などに指定
+draw_text(can3, text3, 5, 95);
+
+ex-14.9.10 => done!
